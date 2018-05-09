@@ -18,4 +18,9 @@ public class ProductDaoImpl implements ProductDao{
         return StreamSupport.stream(productRepository.findAll().spliterator(),false)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Product> findAll() {
+        return null;
+    }
 }
