@@ -24,7 +24,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void getAllProducts(){
+    public void TestGetAllProducts(){
         ProductServiceImpl productService = new ProductServiceImpl();
         productService.setProductDao(productDao);
         List<Product> mockProducts = new ArrayList<>();
@@ -37,5 +37,19 @@ public class ProductServiceImplTest {
         assertThat(productService.getAllProducts());
     }
 
+
+    @Test
+    public void getAvailableProducts(){
+        ProductServiceImpl productService = new ProductServiceImpl();
+        productService.setProductDao(productDao);
+        List<Product> mockProducts = new ArrayList<>();
+        mockProducts.add(new Product(201L,"23","game","description","image",40.56));
+        mockProducts.add(new Product(202L,"24","titi","description","image",45.56));
+        mockProducts.add(new Product(203L,"26","pen","description","image",34.75));
+        mockProducts.add(new Product(204L,"27","fan","description","image",85.89));
+        mockProducts.add(new Product(205L,"28","bag","description","image",55.60));
+        when(productDao.findAll()).thenReturn(mockProducts);
+        assertThat(productService.getAvailableProducts());
+    }
 }
 
