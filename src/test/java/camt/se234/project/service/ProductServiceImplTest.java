@@ -39,7 +39,7 @@ public class ProductServiceImplTest {
 
 
     @Test
-    public void getAvailableProducts(){
+    public void TestGetAvailableProducts(){
         ProductServiceImpl productService = new ProductServiceImpl();
         productService.setProductDao(productDao);
         List<Product> mockProducts = new ArrayList<>();
